@@ -39,7 +39,6 @@ function getMiddleCharacter(str) {
     //then return two letters if even and just 1 if its odd.
     var MiddleChar = str.length / 2;
     if (str.length % 2 == 0) {
-        console.log(MiddleChar);
         return str.substring((MiddleChar - 1), (MiddleChar + 1));
     } else {
         return str.substring(MiddleChar, (MiddleChar + 1));
@@ -60,6 +59,18 @@ function reverseWord(word) {
 function reverseAllWords(words) {
   if (words === undefined) throw new Error("words is required");
   // Add your code here!
+    //used the code for the previous function to reverse words within an array.    
+    var tempStringTwo = "";
+    var tempStringArray = [];
+    for (var i = 0; i <= words.length -1; i++) {
+        var tempStringOne = words[i];
+        console.log(tempStringOne + " " + words[i]);
+        for (var k = tempStringOne.length - 1; k >= 0; k--) {
+            tempStringTwo += tempStringOne[k];
+        }
+        tempStringArray.push(tempStringTwo);
+    }
+    return tempStringArray;
 }
 
 function countLinuxUsers(users) {
