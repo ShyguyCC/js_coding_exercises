@@ -20,7 +20,6 @@ function addVAT(originalPrice, vatRate) {
     //then we use math round and number epsilon to round up any float values to 2 decimals.
     var temp = originalPrice + ((vatRate / 100) * originalPrice);
     temp = Math.round((temp + Number.EPSILON) * 100) / 100;
-    console.log(temp);
     return temp;
 }
 
@@ -28,16 +27,34 @@ function getSalePrice(originalPrice, reduction) {
   if (originalPrice === undefined) throw new Error("originalPrice is required");
   if (reduction === undefined) throw new Error("reduction is required");
   // Add your code here!
+    //using the past function but minus the precent price.
+    var temp = originalPrice - ((reduction / 100) * originalPrice);
+    temp = Math.round((temp + Number.EPSILON) * 100) / 100;
+    return temp;
 }
 
 function getMiddleCharacter(str) {
-  if (str === undefined) throw new Error("str is required");
-  // Add your code here!
+    if (str === undefined) throw new Error("str is required");
+    //we get the middle part of the string and see if it is odd or even.
+    //then return two letters if even and just 1 if its odd.
+    var MiddleChar = str.length / 2;
+    if (str.length % 2 == 0) {
+        console.log(MiddleChar);
+        return str.substring((MiddleChar - 1), (MiddleChar + 1));
+    } else {
+        return str.substring(MiddleChar, (MiddleChar + 1));
+    }
 }
 
 function reverseWord(word) {
   if (word === undefined) throw new Error("word is required");
   // Add your code here!
+    //we create a loop going from the last letter of the word towards the first and create another string to return the reversed word.
+    var tempString = "";
+    for (var i = word.length - 1; i >= 0; i--) {
+        tempString += word[i];
+    }
+    return tempString;
 }
 
 function reverseAllWords(words) {
