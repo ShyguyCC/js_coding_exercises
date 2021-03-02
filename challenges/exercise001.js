@@ -64,7 +64,7 @@ function reverseAllWords(words) {
     var tempStringArray = [];
     for (var i = 0; i <= words.length -1; i++) {
         var tempStringOne = words[i];
-        console.log(tempStringOne + " " + words[i]);
+        tempStringTwo = "";
         for (var k = tempStringOne.length - 1; k >= 0; k--) {
             tempStringTwo += tempStringOne[k];
         }
@@ -76,16 +76,39 @@ function reverseAllWords(words) {
 function countLinuxUsers(users) {
   if (users === undefined) throw new Error("users is required");
   // Add your code here!
+    //we go through the array and any element with the type linux is added to the counter and then returned.
+    var counter = 0;
+    for (var i = 0; i < users.length; i++) {
+        if (users[i]['type'] == "Linux") {
+            counter++;
+        }
+    }
+    return counter;
 }
 
 function getMeanScore(scores) {
   if (scores === undefined) throw new Error("scores is required");
   // Add your code here!
+    //for loop to get the sum of array, then we devide by length of array and use mathround and number epsilon to round it to 2 decimal places.
+    var sum = 0;
+    for (var i = 0; i < scores.length; i++) {
+        sum += scores[i];
+    }
+    sum = Math.round(((sum / scores.length) + Number.EPSILON) * 100) / 100;
+    return sum;
 }
 
 function simpleFizzBuzz(n) {
   if (n === undefined) throw new Error("n is required");
   // Add your code here!
+    if (n % 3 == 0 && n % 5 == 0) {
+        return "fizzbuzz";
+    } else if (n % 3 == 0) {
+        return "fizz";
+    } else if (n % 5 == 0) {
+        return "buzz";
+    }
+    return n;
 }
 
 module.exports = {
