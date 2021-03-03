@@ -62,7 +62,7 @@ function reverseAllWords(words) {
     //used the code for the previous function to reverse words within an array.    
     var tempStringTwo = "";
     var tempStringArray = [];
-    for (var i = 0; i <= words.length -1; i++) {
+    for (var i = 0; i < words.length; i++) {
         var tempStringOne = words[i];
         tempStringTwo = "";
         for (var k = tempStringOne.length - 1; k >= 0; k--) {

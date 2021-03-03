@@ -1,43 +1,107 @@
 function findSmallNums(nums) {
   if (!nums) throw new Error("nums is required");
   // Your code here
+    //simple iterate through array and add anything less than 1 to another array.
+    var tempArray = [];
+    var counter = 0;
+    for (var i = 0; i < nums.length; i++) {
+        if (nums[i] < 1) {
+            tempArray[counter] = nums[i];
+            counter++;
+        }
+    }
+    return tempArray;
 }
 
 function findNamesBeginningWith(names, char) {
   if (!names) throw new Error("names is required");
-  if (!char) throw new Error("char is required");
-  // Your code here
+    if (!char) throw new Error("char is required");
+    var tempArray = [];
+    var counter = 0;
+    for (var i = 0; i < names.length; i++) {
+        if (names[i].substring(0, 1) == char) {
+            tempArray[counter] = names[i];
+            counter++;
+        }
+    }
+    return tempArray;
 }
 
 function findVerbs(words) {
   if (!words) throw new Error("words is required");
   // Your code here
+    // we use the function includes to see if theres a space after to so that it doenst flag when within a word
+    var tempArray = [];
+    var counter = 0;
+    for (var i = 0; i < words.length; i++) {
+        if (words[i].includes("to ")) {
+            tempArray[counter] = words[i];
+            counter++;
+        }
+    }
+    return tempArray;
 }
 
 function getIntegers(nums) {
   if (!nums) throw new Error("nums is required");
-  // Your code here
+    // Your code here
+    var tempArray = [];
+    var counter = 0;
+    for (var i = 0; i < nums.length; i++) {
+        //check if the number can be devided by 1, if not it has a decimal.
+        if (nums[i] % 1 == 0) {
+            tempArray[counter] = nums[i];
+            counter++;
+        }
+    }
+    return tempArray;
 }
 
 function getCities(users) {
   if (!users) throw new Error("users is required");
-  // Your code here
+    // Your code here
+    var tempArray = [];
+    for (var i = 0; i < users.length; i++) {
+        tempArray[i] = users[i]['data']['city']['displayName'];
+    }
+    return tempArray;
 }
 
 function getSquareRoots(nums) {
   if (!nums) throw new Error("nums is required");
-  // Your code here
+    // Your code here
+    var tempArray = [];
+    for (var i = 0; i < nums.length; i++) {
+        tempArray[i] = Math.round(Math.sqrt(nums[i]) * 100) / 100;
+    }
+    return tempArray;
 }
 
 function findSentencesContaining(sentences, str) {
   if (!sentences) throw new Error("sentences is required");
   if (!str) throw new Error("str is required");
   // Your code here
+    var tempArray = [];
+    var counter = 0;
+    for (var i = 0; i < sentences.length; i++) {
+        //to make it not case sensitive i made the if statement for both of them lowercase
+        if (sentences[i].toLowerCase().includes(str.toLowerCase())) {
+            tempArray[counter] = sentences[i];
+            counter++;
+        }
+    }
+    return tempArray;
 }
 
 function getLongestSides(triangles) {
   if (!triangles) throw new Error("triangles is required");
   // Your code here
+    var tempArray = [];
+    for (var i = 0; i < triangles.length; i++) {
+        //here we use math max apply to get the highest number in the array we are looking at.
+        tempArray[i] = Math.max.apply(null, triangles[i]);
+    }
+    return tempArray;
 }
 
 module.exports = {
