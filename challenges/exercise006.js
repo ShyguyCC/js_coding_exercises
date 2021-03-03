@@ -5,7 +5,14 @@
  * @returns {Number}
  */
 const sumMultiples = arr => {
-  if (arr === undefined) throw new Error("arr is required");
+    if (arr === undefined) throw new Error("arr is required");
+    var temp = 0;
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i] % 3 == 0 || arr[i] % 5 == 0) {
+            temp += arr[i];
+        }
+    }
+    return temp;
 };
 
 /**
@@ -14,7 +21,21 @@ const sumMultiples = arr => {
  * @returns {Boolean}
  */
 const isValidDNA = str => {
-  if (str === undefined) throw new Error("str is required");
+    if (str === undefined) throw new Error("str is required");
+    var arr = ['C', 'G', 'T', 'A'];
+    var temp = "";
+    for (var i = 0; i < arr.length; i++) {
+        for (var k = 0; k < str.length; k++) {
+            if (str[k + 1] != null) {
+                temp = str.substring(k, k + 1);
+                if (arr[i] == temp) {
+                    return true;
+                }
+
+            }
+        }
+    }
+    return false;
 };
 
 /**
@@ -23,7 +44,12 @@ const isValidDNA = str => {
  * @returns {String}
  */
 const getComplementaryDNA = str => {
-  if (str === undefined) throw new Error("str is required");
+    //first we create an array with paired dna, then use map to go through the array and check if s is in the temp array IE A = T and join it onto a string and return the finished product.
+    if (str === undefined) throw new Error("str is required");
+    const tempArray = { "T": "A", "A": "T", "G": "C", "C": "G" }
+    const isValid = isValidDNA(str)
+    if (isValid)
+        return ([...str].map(s => tempArray[s])).join('')
 };
 
 /**
