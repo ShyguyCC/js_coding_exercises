@@ -58,7 +58,11 @@ const getComplementaryDNA = str => {
  * @returns {Boolean}
  */
 const isItPrime = n => {
-  if (n === undefined) throw new Error("n is required");
+    if (n === undefined) throw new Error("n is required");
+    //go though all vaules up to n to check if it can be divided, if not its a prime number.
+    for (var i = 2; i < n; i++)
+        if (n % i === 0) return false;
+    return true;
 };
 
 /**
@@ -73,8 +77,19 @@ const isItPrime = n => {
  * @returns {Array}
  */
 const createMatrix = (n, fill) => {
-  if (n === undefined) throw new Error("n is required");
-  if (fill === undefined) throw new Error("fill is required");
+    if (n === undefined) throw new Error("n is required");
+    if (fill === undefined) throw new Error("fill is required");
+
+
+
+    var tempArray = [];
+    for (var i = 0; i < n; i++) {
+        tempArray[i] = [];
+        for (var k = 0; k < n; k++) {
+            tempArray[i][k] = fill;
+        }
+    }
+    return tempArray;
 };
 
 /**
@@ -91,7 +106,13 @@ const createMatrix = (n, fill) => {
  */
 const areWeCovered = (staff, day) => {
   if (staff === undefined) throw new Error("staff is required");
-  if (day === undefined) throw new Error("day is required");
+    if (day === undefined) throw new Error("day is required");
+
+    let noOfStaff = 0;
+    const arr = staff.map(st => st.rota); //get the rota from each staff and add it to its own array.
+    arr.forEach(ar => ar.includes(day) ? noOfStaff++ : 0)//for each staff that includeds input day add to the staff count, if its above 3 then return true.
+    return noOfStaff >= 3;
+
 };
 
 module.exports = {
