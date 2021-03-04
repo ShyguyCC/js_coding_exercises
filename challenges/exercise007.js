@@ -3,7 +3,14 @@
  * @param {Number} n
  */
 const sumDigits = n => {
-  if (n === undefined) throw new Error("n is required");
+    if (n === undefined) throw new Error("n is required");
+    //make an array from number by making it a string then making sure the components are a number not a string.
+    var tempArr = Array.from(n.toString()).map(Number);
+    var sum = 0;
+    for (var i = 0; i < tempArr.length; i++) {
+        sum += tempArr[i];
+    }
+    return sum;
 };
 
 /**
@@ -16,7 +23,15 @@ const sumDigits = n => {
  */
 const createRange = (start, end, step) => {
   if (start === undefined) throw new Error("start is required");
-  if (end === undefined) throw new Error("end is required");
+    if (end === undefined) throw new Error("end is required");
+    var tempArr = [];
+    var counter = 0;
+    //for loop starting at start, continue until more than end and iterate by step amount.
+    for (var i = start; i <= end; i += step) {
+        tempArr[counter] = i;
+        counter++;
+    }
+    return tempArr;
 };
 
 /**

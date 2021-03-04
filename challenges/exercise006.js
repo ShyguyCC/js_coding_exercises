@@ -110,7 +110,9 @@ const areWeCovered = (staff, day) => {
 
     let noOfStaff = 0;
     const arr = staff.map(st => st.rota); //get the rota from each staff and add it to its own array.
-    arr.forEach(ar => ar.includes(day) ? noOfStaff++ : 0)//for each staff that includeds input day add to the staff count, if its above 3 then return true.
+    //for each staff that includeds input day add to the staff count, if its above 3 then return true. if the array doesnt include the day return zero instead.
+    // ? is like an if statement, where as ar.includes = true then noofstaff++ is called, if false then 0 is called.
+    arr.forEach(ar => ar.includes(day) ? noOfStaff++ : 0)
     return noOfStaff >= 3;
 
 };
