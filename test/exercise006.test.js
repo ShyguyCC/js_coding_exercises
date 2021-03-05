@@ -79,7 +79,7 @@ describe("createMatrix", () => {
             ["foo", "foo", "foo"]
         ]
 
-        let results = createMatrix(3, "foo");
+        var results = createMatrix(3, "foo");
         expect(results.toString()).toBe(expected.toString());
     });
 
@@ -91,7 +91,7 @@ describe("createMatrix", () => {
             ["bar", "bar", "bar", "bar", "bar"],
             ["bar", "bar", "bar", "bar", "bar"],
         ]
-        let results = createMatrix(5, "bar");
+        var results = createMatrix(5, "bar");
         expect(results.toString()).toBe(expected.toString());
     });
 });

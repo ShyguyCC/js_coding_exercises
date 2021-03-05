@@ -61,7 +61,7 @@ const isItPrime = n => {
     if (n === undefined) throw new Error("n is required");
     //go though all vaules up to n to check if it can be divided, if not its a prime number.
     for (var i = 2; i < n; i++)
-        if (n % i === 0) return false;
+        if (n % i == 0) return false;
     return true;
 };
 
@@ -108,7 +108,7 @@ const areWeCovered = (staff, day) => {
   if (staff === undefined) throw new Error("staff is required");
     if (day === undefined) throw new Error("day is required");
 
-    let noOfStaff = 0;
+    var noOfStaff = 0;
     const arr = staff.map(st => st.rota); //get the rota from each staff and add it to its own array.
     //for each staff that includeds input day add to the staff count, if its above 3 then return true. if the array doesnt include the day return zero instead.
     // ? is like an if statement, where as ar.includes = true then noofstaff++ is called, if false then 0 is called.
