@@ -39,29 +39,36 @@ function findNamesBeginningWith(names, char) {
 function findVerbs(words) {
   if (!words) throw new Error("words is required");
     // we use the function includes to see if theres a space after to so that it doenst flag when within a word
-    let tempArray = [];
-    let counter = 0;
-    for (let i = 0; i < words.length; i++) {
-        if (words[i].includes("to ")) {
-            tempArray[counter] = words[i];
-            counter++;
-        }
-    }
-    return tempArray;
+    // let tempArray = [];
+    // let counter = 0;
+    // for (let i = 0; i < words.length; i++) {
+    //     if (words[i].includes("to ")) {
+    //         tempArray[counter] = words[i];
+    //         counter++;
+    //     }
+    // }
+    // return tempArray;
+    //old code to remember above.
+
+    //as this is quite the same as the function above but instead of the first letter your just seeing if "to " with a space is at the start
+    return words.filter(words => words.startsWith("to "));
 }
 
 function getIntegers(nums) {
   if (!nums) throw new Error("nums is required");
-  let tempArray = [];
-  let counter = 0;
-    for (let i = 0; i < nums.length; i++) {
-        //check if the number can be devided by 1, if not it has a decimal.
-        if (nums[i] % 1 == 0) {
-            tempArray[counter] = nums[i];
-            counter++;
-        }
-    }
-    return tempArray;
+  // let tempArray = [];
+  // let counter = 0;
+  //   for (let i = 0; i < nums.length; i++) {
+  //       //check if the number can be devided by 1, if not it has a decimal.
+  //       if (nums[i] % 1 == 0) {
+  //           tempArray[counter] = nums[i];
+  //           counter++;
+  //       }
+  //   }
+  //   return tempArray;
+
+  //we use funtion isinteger to check if nums is a whole number, then add that to the return array.
+  return nums.filter(nums => Number.isInteger(nums));
 }
 
 function getCities(users) {
