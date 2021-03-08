@@ -1,6 +1,5 @@
 function findSmallNums(nums) {
   if (!nums) throw new Error("nums is required");
-  // Your code here
     //simple iterate through array and add anything less than 1 to another array.
     var tempArray = [];
     var counter = 0;
@@ -16,6 +15,7 @@ function findSmallNums(nums) {
 function findNamesBeginningWith(names, char) {
   if (!names) throw new Error("names is required");
     if (!char) throw new Error("char is required");
+    //go through names, take the first letter and check if it matches with char, if so add to temp array and return that.
     var tempArray = [];
     var counter = 0;
     for (var i = 0; i < names.length; i++) {
@@ -29,7 +29,6 @@ function findNamesBeginningWith(names, char) {
 
 function findVerbs(words) {
   if (!words) throw new Error("words is required");
-  // Your code here
     // we use the function includes to see if theres a space after to so that it doenst flag when within a word
     var tempArray = [];
     var counter = 0;
@@ -44,7 +43,6 @@ function findVerbs(words) {
 
 function getIntegers(nums) {
   if (!nums) throw new Error("nums is required");
-    // Your code here
     var tempArray = [];
     var counter = 0;
     for (var i = 0; i < nums.length; i++) {
@@ -59,7 +57,7 @@ function getIntegers(nums) {
 
 function getCities(users) {
   if (!users) throw new Error("users is required");
-    // Your code here
+  //here we get the city name by going through users and using the IDs: data city displayname and returning the new array.
     var tempArray = [];
     for (var i = 0; i < users.length; i++) {
         tempArray[i] = users[i]['data']['city']['displayName'];
@@ -69,7 +67,7 @@ function getCities(users) {
 
 function getSquareRoots(nums) {
   if (!nums) throw new Error("nums is required");
-    // Your code here
+    //use math.sqrt to find the square root and use math.round with *100) /100 to round the number to 2 decimal places if needed.
     var tempArray = [];
     for (var i = 0; i < nums.length; i++) {
         tempArray[i] = Math.round(Math.sqrt(nums[i]) * 100) / 100;
@@ -80,7 +78,6 @@ function getSquareRoots(nums) {
 function findSentencesContaining(sentences, str) {
   if (!sentences) throw new Error("sentences is required");
   if (!str) throw new Error("str is required");
-  // Your code here
     var tempArray = [];
     var counter = 0;
     for (var i = 0; i < sentences.length; i++) {
@@ -95,7 +92,6 @@ function findSentencesContaining(sentences, str) {
 
 function getLongestSides(triangles) {
   if (!triangles) throw new Error("triangles is required");
-  // Your code here
     var tempArray = [];
     for (var i = 0; i < triangles.length; i++) {
         //here we use math max apply to get the highest number in the array we are looking at.
