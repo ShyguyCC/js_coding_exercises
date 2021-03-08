@@ -1,15 +1,20 @@
 function findSmallNums(nums) {
   if (!nums) throw new Error("nums is required");
     //simple iterate through array and add anything less than 1 to another array.
-    var tempArray = [];
-    var counter = 0;
-    for (var i = 0; i < nums.length; i++) {
-        if (nums[i] < 1) {
-            tempArray[counter] = nums[i];
-            counter++;
-        }
-    }
-    return tempArray;
+    // var tempArray = [];
+    // var counter = 0;
+    // for (var i = 0; i < nums.length; i++) {
+    //     if (nums[i] < 1) {
+    //         tempArray[counter] = nums[i];
+    //         counter++;
+    //     }
+    // }
+    // return tempArray;
+    //old code to remember above.
+
+    //we use the filter function to add nubmers that are less than one into nums and return that.
+    return nums.filter(nums => nums < 1);
+
 }
 
 function findNamesBeginningWith(names, char) {
