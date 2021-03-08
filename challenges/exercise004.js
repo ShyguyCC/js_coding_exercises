@@ -30,9 +30,9 @@ function findNamesBeginningWith(names, char) {
 function findVerbs(words) {
   if (!words) throw new Error("words is required");
     // we use the function includes to see if theres a space after to so that it doenst flag when within a word
-    var tempArray = [];
-    var counter = 0;
-    for (var i = 0; i < words.length; i++) {
+    let tempArray = [];
+    let counter = 0;
+    for (let i = 0; i < words.length; i++) {
         if (words[i].includes("to ")) {
             tempArray[counter] = words[i];
             counter++;
@@ -43,9 +43,9 @@ function findVerbs(words) {
 
 function getIntegers(nums) {
   if (!nums) throw new Error("nums is required");
-    var tempArray = [];
-    var counter = 0;
-    for (var i = 0; i < nums.length; i++) {
+  let tempArray = [];
+  let counter = 0;
+    for (let i = 0; i < nums.length; i++) {
         //check if the number can be devided by 1, if not it has a decimal.
         if (nums[i] % 1 == 0) {
             tempArray[counter] = nums[i];
@@ -58,8 +58,8 @@ function getIntegers(nums) {
 function getCities(users) {
   if (!users) throw new Error("users is required");
   //here we get the city name by going through users and using the IDs: data city displayname and returning the new array.
-    var tempArray = [];
-    for (var i = 0; i < users.length; i++) {
+  let tempArray = [];
+    for (let i = 0; i < users.length; i++) {
         tempArray[i] = users[i]['data']['city']['displayName'];
     }
     return tempArray;
@@ -68,8 +68,8 @@ function getCities(users) {
 function getSquareRoots(nums) {
   if (!nums) throw new Error("nums is required");
     //use math.sqrt to find the square root and use math.round with *100) /100 to round the number to 2 decimal places if needed.
-    var tempArray = [];
-    for (var i = 0; i < nums.length; i++) {
+    let tempArray = [];
+    for (let i = 0; i < nums.length; i++) {
         tempArray[i] = Math.round(Math.sqrt(nums[i]) * 100) / 100;
     }
     return tempArray;
@@ -78,9 +78,9 @@ function getSquareRoots(nums) {
 function findSentencesContaining(sentences, str) {
   if (!sentences) throw new Error("sentences is required");
   if (!str) throw new Error("str is required");
-    var tempArray = [];
-    var counter = 0;
-    for (var i = 0; i < sentences.length; i++) {
+  let tempArray = [];
+  let counter = 0;
+    for (let i = 0; i < sentences.length; i++) {
         //to make it not case sensitive i made the if statement for both of them lowercase
         if (sentences[i].toLowerCase().includes(str.toLowerCase())) {
             tempArray[counter] = sentences[i];
@@ -92,8 +92,8 @@ function findSentencesContaining(sentences, str) {
 
 function getLongestSides(triangles) {
   if (!triangles) throw new Error("triangles is required");
-    var tempArray = [];
-    for (var i = 0; i < triangles.length; i++) {
+  let tempArray = [];
+    for (let i = 0; i < triangles.length; i++) {
         //here we use math max apply to get the highest number in the array we are looking at.
         tempArray[i] = Math.max.apply(null, triangles[i]);
     }
