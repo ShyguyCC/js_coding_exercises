@@ -1,9 +1,9 @@
 const sumDigits = n => {
     if (n === undefined) throw new Error("n is required");
     //make an array from number by making it a string then making sure the components are a number not a string.
-    var tempArr = Array.from(n.toString()).map(Number);
-    var sum = 0;
-    for (var i = 0; i < tempArr.length; i++) {
+    let tempArr = Array.from(n.toString()).map(Number);
+    let sum = 0;
+    for (let i = 0; i < tempArr.length; i++) {
         sum += tempArr[i];
     }
     return sum;
@@ -12,10 +12,10 @@ const sumDigits = n => {
 const createRange = (start, end, step) => {
   if (start === undefined) throw new Error("start is required");
     if (end === undefined) throw new Error("end is required");
-    var tempArr = [];
-    var counter = 0;
+    let tempArr = [];
+    let counter = 0;
     //for loop starting at start, continue until more than end and iterate by step amount.
-    for (var i = start; i <= end; i += step) {
+    for (let i = start; i <= end; i += step) {
         tempArr[counter] = i;
         counter++;
     }
@@ -25,15 +25,15 @@ const createRange = (start, end, step) => {
 const getScreentimeAlertList = (users, date) => {
   if (users === undefined) throw new Error("users is required");
     if (date === undefined) throw new Error("date is required");
-    var screenArr = [];
-    for (var i = 0; i < users.length; i++) {
-        var totalUserMin = 0;
+    let screenArr = [];
+    for (let i = 0; i < users.length; i++) {
+        let totalUserMin = 0;
         //get the screentime for each user and check if the dates match, if they do.
         //objects.values gets the whole array of varables of usage, then from there we have an foreach int in the array add it to the total user time.
         //then if the time is over 100 push that user onto the array.
         users[i].screenTime.forEach(d => {
             if (d.date == date) {
-                var dailyscreen = Object.values(d.usage);
+                const dailyscreen = Object.values(d.usage);
                 dailyscreen.forEach(min => { totalUserMin += min; });
             };
         });
