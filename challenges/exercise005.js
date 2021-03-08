@@ -2,7 +2,7 @@ const findNextNumber = (nums, n) => {
   if (nums === undefined) throw new Error("nums is required");
   if (n === undefined) throw new Error("n is required");
     //go through array, if number is found check if next number is not null and return that.
-    for (var i = 0; i < nums.length; i++) {
+    for (let i = 0; i < nums.length; i++) {
         if (nums[i] == n && nums[i + 1] != null) {
             return nums[i + 1];
         }
@@ -13,17 +13,16 @@ const findNextNumber = (nums, n) => {
 const count1sand0s = str => {
   if (str === undefined) throw new Error("str is required");
     //as we have 2 numbers to count i did 2 vars and did a count when one is true
-    var letter_CountOne = 0;
-    var letter_CountZero = 0;
-    for (var i = 0; i < str.length; i++) {
+    let letter_CountOne = 0;
+    let letter_CountZero = 0;
+    for (let i = 0; i < str.length; i++) {
         if (str.charAt(i) == "1") {
             letter_CountOne += 1;
         }else if (str.charAt(i) == "0") {
             letter_CountZero += 1;
         }
     }
-    var tempArray = {1:letter_CountOne,0:letter_CountZero};
-    return tempArray;
+    return {1:letter_CountOne,0:letter_CountZero};
 };
 
 const reverseNumber = n => {
@@ -35,9 +34,9 @@ const reverseNumber = n => {
 const sumArrays = arrs => {
   if (arrs === undefined) throw new Error("arrs is required");
     //just sum up everything in the array within array.
-    var sumTotal = 0;
-    for (var i = 0; i < arrs.length; i++) {
-        for (var k = 0; k < arrs[i].length; k++) {
+    let sumTotal = 0;
+    for (let i = 0; i < arrs.length; i++) {
+        for (let k = 0; k < arrs[i].length; k++) {
             sumTotal += arrs[i][k];
         }
     }
@@ -48,8 +47,7 @@ const arrShift = arr => {
   if (arr === undefined) throw new Error("arr is required");
     //if the array is 2 or more in length then switch the first and last numbers around.
     if (arr.length > 1) {
-        var tempNumb = arr[0];
-        var tempNumbTwo = arr[arr.length];
+        const tempNumb = arr[0];
         arr[0] = arr[arr.length - 1];
         arr[arr.length - 1] = tempNumb;
     }
@@ -59,7 +57,7 @@ const arrShift = arr => {
 const findNeedle = (haystack, searchTerm) => {
   if (haystack === undefined) throw new Error("haystack is required");
   if (searchTerm === undefined) throw new Error("searchTerm is required");
-    //for each key with a value in haystack, check if the value is a string. hten change the values to lower case and check if they match.
+    //for each key with a value in haystack, check if the value is a string. then change the values to lower case and check if they match.
     for (const [key, value] of Object.entries(haystack)) {
         if (typeof (value) == "string") {
             if (value.toLowerCase().includes(searchTerm.toLowerCase()) == true){
