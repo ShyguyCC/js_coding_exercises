@@ -21,15 +21,19 @@ function findNamesBeginningWith(names, char) {
   if (!names) throw new Error("names is required");
     if (!char) throw new Error("char is required");
     //go through names, take the first letter and check if it matches with char, if so add to temp array and return that.
-    var tempArray = [];
-    var counter = 0;
-    for (var i = 0; i < names.length; i++) {
-        if (names[i].substring(0, 1) == char) {
-            tempArray[counter] = names[i];
-            counter++;
-        }
-    }
-    return tempArray;
+    // var tempArray = [];
+    // var counter = 0;
+    // for (var i = 0; i < names.length; i++) {
+    //     if (names[i].substring(0, 1) == char) {
+    //         tempArray[counter] = names[i];
+    //         counter++;
+    //     }
+    // }
+    // return tempArray;
+    //old code to remember above.
+
+    //using filter and the starts with funtion from string we can filter the names that start with char.
+    return names.filter(names => names.startsWith(char));
 }
 
 function findVerbs(words) {
