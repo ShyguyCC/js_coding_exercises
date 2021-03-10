@@ -101,26 +101,30 @@ function getSquareRoots(nums) {
 function findSentencesContaining(sentences, str) {
   if (!sentences) throw new Error("sentences is required");
   if (!str) throw new Error("str is required");
-  let tempArray = [];
-  let counter = 0;
-    for (let i = 0; i < sentences.length; i++) {
-        //to make it not case sensitive i made the if statement for both of them lowercase
-        if (sentences[i].toLowerCase().includes(str.toLowerCase())) {
-            tempArray[counter] = sentences[i];
-            counter++;
-        }
-    }
-    return tempArray;
+  // let tempArray = [];
+  // let counter = 0;
+  //   for (let i = 0; i < sentences.length; i++) {
+  //       //to make it not case sensitive i made the if statement for both of them lowercase
+  //       if (sentences[i].toLowerCase().includes(str.toLowerCase())) {
+  //           tempArray[counter] = sentences[i];
+  //           counter++;
+  //       }
+  //   }
+  //   return tempArray;
+//as we have an if statement within the for loop we can exchange that with a filter which we input the if statement to return the array that we were creating before.
+  return sentences.filter(sentences => sentences.toLowerCase().includes(str.toLowerCase()));
 }
 
 function getLongestSides(triangles) {
   if (!triangles) throw new Error("triangles is required");
-  let tempArray = [];
-    for (let i = 0; i < triangles.length; i++) {
-        //here we use math max apply to get the highest number in the array we are looking at.
-        tempArray[i] = Math.max.apply(null, triangles[i]);
-    }
-    return tempArray;
+  // let tempArray = [];
+  //   for (let i = 0; i < triangles.length; i++) {
+  //       //here we use math max apply to get the highest number in the array we are looking at.
+  //       tempArray[i] = Math.max.apply(null, triangles[i]);
+  //   }
+  //   return tempArray;
+  //as we are adding every element to the array we use map, then i input what i was doing within the forloop for the new array into the map funciton.
+  return triangles.map(triangles => Math.max.apply(null, triangles));
 }
 
 module.exports = {
