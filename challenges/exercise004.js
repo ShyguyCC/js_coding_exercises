@@ -74,21 +74,28 @@ function getIntegers(nums) {
 function getCities(users) {
   if (!users) throw new Error("users is required");
   //here we get the city name by going through users and using the IDs: data city displayname and returning the new array.
-  let tempArray = [];
-    for (let i = 0; i < users.length; i++) {
-        tempArray[i] = users[i]['data']['city']['displayName'];
-    }
-    return tempArray;
+  //let tempArray = [];
+  //  for (let i = 0; i < users.length; i++) {
+  //      tempArray[i] = users[i]['data']['city']['displayName'];
+  //  }
+  //  return tempArray;
+//we are using map as we are returning the results we are getting by itterating through the array.
+//to get through to displayName like an object we use the property name to call that part of the array to bring it back to the map.
+  return users.map(users => users.data.city.displayName);
+
 }
 
 function getSquareRoots(nums) {
   if (!nums) throw new Error("nums is required");
     //use math.sqrt to find the square root and use math.round with *100) /100 to round the number to 2 decimal places if needed.
-    let tempArray = [];
-    for (let i = 0; i < nums.length; i++) {
-        tempArray[i] = Math.round(Math.sqrt(nums[i]) * 100) / 100;
-    }
-    return tempArray;
+    // let tempArray = [];
+    // for (let i = 0; i < nums.length; i++) {
+    //     tempArray[i] = Math.round(Math.sqrt(nums[i]) * 100) / 100;
+    // }
+    // return tempArray;
+    //we use map as we are returning everything from the array and we put in the math.round() part of the for loop into the map function as thats all that we were doing.
+    return nums.map(nums => Math.round(Math.sqrt(nums) * 100) / 100);
+
 }
 
 function findSentencesContaining(sentences, str) {
